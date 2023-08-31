@@ -184,7 +184,7 @@ export const App = () => (
               const equalCotegory = categoriesFromServer
                 .find(cat => cat.id === product.categoryId);
               const owner = usersFromServer
-                .find(person => person.id === equalCotegory.ownerId);
+                .find(person => person.id);
 
               return (
                 <tr data-cy="Product">
@@ -201,14 +201,14 @@ export const App = () => (
                   </td>
 
                   <td
-                data-cy="ProductUser"
-                className={cn(
-                  {'has-text-link': owner.sex === 'm'},
-                  {'has-text-danger': owner.sex === 'f'},
-                )}
-              >
-                {owner.name}
-              </td>
+                    data-cy="ProductUser"
+                    className={cn(
+                      {'has-text-link': owner.sex === 'm'},
+                      {'has-text-danger': owner.sex === 'f'},
+                    )}
+                  >
+                    {owner.name}
+                  </td>
                 </tr>
 
               );
